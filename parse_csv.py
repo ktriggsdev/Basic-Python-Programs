@@ -1,18 +1,17 @@
 import csv
 #read from csv
-fields=list()
-rows=list()
+fields = []
+rows = []
 with open('employee.csv','r') as csv_file:
     csv_reader=csv.reader(csv_file)
     fields=next(csv_reader) #csv reader object
-    for row in csv_reader:
-        rows.append(row)
-    print("Total no. of rows={}".format(csv_reader.line_num))
-print("Field Names are:"+",".join(field for field in fields))
+    rows.extend(iter(csv_reader))
+    print(f"Total no. of rows={csv_reader.line_num}")
+print("Field Names are:" + ",".join(fields))
 print("First 5 rows are:\n")
 for row in rows[:5]:
     for col in row:
-        print("{}".format(col),end=" "),
+        (print(f"{col}", end=" "), )
     print("\n")
 #write to csv
 flds=['Name','Branch','Year','CGPA']

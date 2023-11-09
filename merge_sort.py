@@ -21,7 +21,7 @@ def merge(left_half,right_half):
          res.append(right_half[0])
          right_half.remove(right_half[0])
    if len(left_half) == 0:
-      res = res + right_half
+      res += right_half
    else:
       res = res + left_half
    return res

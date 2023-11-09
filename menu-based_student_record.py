@@ -15,13 +15,10 @@ while choice.lower()!='n':
 #append
 def appendStudent():
     global studList
-    singlr = []
     studName=input('enter your name')
     Rollno=input('enter your Rollno')
     cgpa=int(input('cgpa :'))
-    singlr.append(studName)
-    singlr.append(Rollno)
-    singlr.append(cgpa)
+    singlr = [studName, Rollno, cgpa]
     studList.append(singlr)
     
     

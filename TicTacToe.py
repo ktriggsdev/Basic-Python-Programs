@@ -5,9 +5,21 @@ import functools
 
 
 def button(f):
-    button1 = Button(f, text=" ", fg="Black", font="Arial 20 bold", height=1, width=2, padx=25, pady=20, bg="White", borderwidth=0,
-                         activebackground="White", cursor="hand2", state=NORMAL)
-    return button1
+    return Button(
+        f,
+        text=" ",
+        fg="Black",
+        font="Arial 20 bold",
+        height=1,
+        width=2,
+        padx=25,
+        pady=20,
+        bg="White",
+        borderwidth=0,
+        activebackground="White",
+        cursor="hand2",
+        state=NORMAL,
+    )
 
 
 def full():
@@ -62,9 +74,7 @@ def click(event, param1, param2):
         if sign == 0:
             unchecked = []
             for row in range(3):
-                for col in range(3):
-                    if b[row][col]['text'] == " ":
-                        unchecked.append([row, col])
+                unchecked.extend([row, col] for col in range(3) if b[row][col]['text'] == " ")
             index = r.sample(unchecked, 1)
             b[index[0][0]][index[0][1]].config(text="X", state=DISABLED)
             com_checked.append((index[0][0], index[0][1]))
@@ -74,8 +84,6 @@ def click(event, param1, param2):
                 empty()
                 user_checked.clear()
                 com_checked.clear()
-        else:
-            pass
 
 
 root = Tk()

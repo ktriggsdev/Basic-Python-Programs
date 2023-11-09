@@ -23,11 +23,8 @@ def dijsktra(graph, initial):
     min_node = None
     for node in nodes:
       if node in visited:
-        if min_node is None:
+        if min_node is None or visited[node] < visited[min_node]:
           min_node = node
-        elif visited[node] < visited[min_node]:
-          min_node = node
-
     if min_node is None:
       break
 

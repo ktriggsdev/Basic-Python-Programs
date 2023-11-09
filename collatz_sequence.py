@@ -6,13 +6,10 @@
 
 def collatz(initial_number):
     num = initial_number
-    print(f'Initial number is: {initial_number}')
+    print(f'Initial number is: {num}')
     while num != 1:
         print(num)
-        if num % 2 == 0:
-            num = int(num / 2)
-        else:
-            num = int(3 * num + 1)
+        num = int(num / 2) if num % 2 == 0 else int(3 * num + 1)
     else:
         print(num)
         print('Finally!')

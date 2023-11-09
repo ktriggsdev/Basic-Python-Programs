@@ -74,14 +74,14 @@ window.onkeypress(leftpaddleup,'w')
 window.onkeypress(leftpaddledown,'s')
 window.onkeypress(rightpaddleup,'Up')
 window.onkeypress(rightpaddledown,'Down')
-  
+
 while True:
     window.update()
-  
+
     #moving the ball
     ball.setx(ball.xcor()+ballxdirection)
     ball.sety(ball.ycor()+ballxdirection)
-  
+
     #border set up
     if ball.ycor()>290:
         ball.sety(290)
@@ -89,32 +89,38 @@ while True:
     if ball.ycor()<-290:
         ball.sety(-290)
         ballydirection=ballydirection*-1
-          
+
     if ball.xcor() > 390:
         ball.goto(0,0)
         ball_dx = ball_dx * -1
         player_a_score = player_a_score + 1
         pen.clear()
-        pen.write("Player A: {}                    Player B: {} ".format(player_a_score,player_b_score),align="center",font=('Monaco',24,"normal"))
+        pen.write(
+            f"Player A: {player_a_score}                    Player B: {player_b_score} ",
+            align="center",
+            font=('Monaco', 24, "normal"),
+        )
         os.system("afplay wallhit.wav&")
-  
-  
-  
-    if(ball.xcor()) < -390: # Left width paddle Border
+
+
+
+    if (ball.xcor()) < -390: # Left width paddle Border
         ball.goto(0,0)
         ball_dx = ball_dx * -1
         player_b_score = player_b_score + 1
         pen.clear()
-        pen.write("Player A: {}                    Player B: {} ".format(player_a_score,player_b_score),align="center",font=('Monaco',24,"normal"))
+        pen.write(
+            f"Player A: {player_a_score}                    Player B: {player_b_score} ",
+            align="center",
+            font=('Monaco', 24, "normal"),
+        )
         os.system("afplay wallhit.wav&")
-  
-     # Handling the collisions with paddles.
-  
+
     if(ball.xcor() > 340) and (ball.xcor() < 350) and (ball.ycor() < rightpaddle.ycor() + 40 and ball.ycor() > rightpaddle.ycor() - 40):
         ball.setx(340)
         ball_dx = ball_dx * -1
         os.system("afplay paddle.wav&")
-  
+
     if(ball.xcor() < -340) and (ball.xcor() > -350) and (ball.ycor() < leftpaddle.ycor() + 40 and ball.ycor() > leftpaddle.ycor() - 40):
         ball.setx(-340)
         ball_dx = ball_dx * -1

@@ -11,30 +11,28 @@ def parenthesis_check(parenthesis_array):
 
     stack = []
     for parenthesis in parenthesis_array:
-        if parenthesis == '}':
-            if len(stack) == 0:
+        if parenthesis == ')':
+            if not stack:
                 return False
             prev_parenthesis = stack.pop()
-            if prev_parenthesis != '{':
+            if prev_parenthesis != '(':
                 return False
         elif parenthesis == ']':
-            if len(stack) == 0:
+            if not stack:
                 return False
             prev_parenthesis = stack.pop()
             if prev_parenthesis != '[':
                 return False
-        elif parenthesis == ')':
-            if len(stack) == 0:
+        elif parenthesis == '}':
+            if not stack:
                 return False
             prev_parenthesis = stack.pop()
-            if prev_parenthesis != '(':
-                return False  
-        else: stack.append(parenthesis)
-    
-    if len(stack) > 0:
-        return False
-    else:
-        return True
+            if prev_parenthesis != '{':
+                return False
+        else:
+            stack.append(parenthesis)
+
+    return len(stack) <= 0
 
 str = input("Input: ")
 arr = list(str)

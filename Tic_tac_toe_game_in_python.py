@@ -15,9 +15,9 @@ def printBoard(xState, zState):
     eight = 'X' if xState[8] else ('0' if zState[8] else 8)
     nine = 'X' if xState[9] else ('0' if zState[9] else 9)
     print(f"{one} | {two} | {three} ")
-    print(f"--|---|---")
+    print("--|---|---")
     print(f"{four} | {five} | {six} ")
-    print(f"--|---|---")
+    print("--|---|---")
     print(f"{senven} | {eight} | {nine} ")
 
 def checkWin(xState, zState):

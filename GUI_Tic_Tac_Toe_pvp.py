@@ -61,7 +61,7 @@ def Retry():
     for i in ('row1','row2','row3'):
         for j in range(3):
             
-            globals()[i+str(j+1)].configure(text=f'       ')
+            globals()[i+str(j+1)].configure(text='       ')
             globals()[i+str(j+1)]['state']='active'
     finish.rtry.pack_forget()
     player_win.pack_forget()
@@ -83,12 +83,9 @@ def win_check():
         ):
         
         
-        if Xcount>Ocount:
-            string='Player 1(X) won'
-        else:
-            string='Player 2(O) won'
+        string = 'Player 1(X) won' if Xcount>Ocount else 'Player 2(O) won'
         finish(string)
-        
+
     if not game_over:
         if (Xcount==5 and Ocount==4 or
                 Xcount==4 and Ocount==5):
@@ -108,7 +105,12 @@ player_win=tk.Label(gui,text='')
 for i in ('row1','row2','row3'):
     for j in range(3):
         
-        vars()[i+str(j+1)]=tk.Button(vars()[i], text=f'       ',bd='1',command=partial(clicked,i+' '+str(j+1)))
+        vars()[i + str(j + 1)] = tk.Button(
+            vars()[i],
+            text='       ',
+            bd='1',
+            command=partial(clicked, f'{i} {str(j + 1)}'),
+        )
         vars()[i+str(j+1)].pack(side='left')
 
 

@@ -3,21 +3,17 @@
 import math
 
 def square(side):
-    area = side * side
-    return area
+    return side * side
 
 def rectangle(length, breadth):
-    area = length * breadth
-    return area
+    return length * breadth
 
 def triangle(side1, side2, side3):
     s = (side1 + side2 + side3)/2
-    area = math.sqrt(s*(s-side1)*(s-side2)*(s-side3))
-    return area
+    return math.sqrt(s*(s-side1)*(s-side2)*(s-side3))
 
 def circle(radius):
-    area = 3.14 * radius * radius
-    return area
+    return 3.14 * radius * radius
 
 final_area = 0.0
 print("Choose the shape you want to calculate area of: ")

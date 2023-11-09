@@ -29,7 +29,7 @@ krishna.penup()
 krishna.goto(-180,10)
 krishna.pendown()
 
-for movement in range(100):
+for _ in range(100):
     aman.forward(randint(1,5))
     swati.forward(randint(1, 5))
     ram.forward(randint(1, 5))

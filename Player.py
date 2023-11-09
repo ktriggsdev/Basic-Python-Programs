@@ -18,7 +18,7 @@ class Human(Player):
         valid_square = False
         val = None
         while not valid_square:
-            square = input(self.player + ' turn. Please introduce a move (1-9): ')
+            square = input(f'{self.player} turn. Please introduce a move (1-9): ')
             try:
                 val = int(square) - 1
                 if val not in game.remaining_moves():
@@ -34,8 +34,7 @@ class RandomComputer(Player):
         super().__init__(player)
 
     def get_move(self, game):
-        square = random.choice(game.remaining_moves())
-        return square
+        return random.choice(game.remaining_moves())
 
 
 class SmartComputer(Player):
@@ -43,11 +42,11 @@ class SmartComputer(Player):
         super().__init__(player)
 
     def get_move(self, game):
-        if len(game.remaining_moves()) == 9:
-            square = random.choice(game.remaining_moves())
-        else:
-            square = self.minimax(game, self.player)['position']
-        return square
+        return (
+            random.choice(game.remaining_moves())
+            if len(game.remaining_moves()) == 9
+            else self.minimax(game, self.player)['position']
+        )
 
     def minimax(self, state, player):
         max_player = self.player
@@ -75,10 +74,11 @@ class SmartComputer(Player):
             state.actual_winner = None
             sim_score['position'] = possible_move
 
-            if player == max_player:
-                if sim_score['score'] > best['score']:
-                    best = sim_score
-            else:
-                if sim_score['score'] < best['score']:
-                    best = sim_score
+            if (
+                player == max_player
+                and sim_score['score'] > best['score']
+                or player != max_player
+                and sim_score['score'] < best['score']
+            ):
+                best = sim_score
         return best

@@ -13,15 +13,10 @@ import random
 print(logo)
 cards=[11,2,3,4,5,6,7,8,9,10,10,10,10]
 
-player=[]
-computer=[]
-
 player_sum=0
 computer_sum=0
 
-player.append(random.choice(cards))
-
-
+player = [random.choice(cards)]
 rand = random.choice(cards)
 if (rand == 11 and rand + computer_sum > 21):
     player.append(1)
@@ -29,9 +24,7 @@ else:
     player.append(rand)
 
 
-computer.append(random.choice(cards))
-
-
+computer = [random.choice(cards)]
 randco = random.choice(cards)
 if (rand == 11 and rand + computer_sum > 21):
     computer.append(1)
@@ -41,21 +34,21 @@ else:
 player_sum+=player[0]+player[1]
 computer_sum+=computer[0]+computer[1]
 
-while(player_sum<=21):
+while (player_sum<=21):
     print(f"Your cards : {player} ,current score : {player_sum}")
     print(f"Computer's first card : {computer[0]}")
 
     accept=input("Type y to get another card , Type n to pass : ")
-    if(accept=='y'):
-        rand=random.choice(cards)
-        if(rand==11 and rand+player_sum>21):
-            player_sum+=1
-            player.append(1)
-        else:
-            player_sum+=rand
-            player.append(rand)
-    else:break
+    if accept != 'y':
+        break
 
+    rand=random.choice(cards)
+    if(rand==11 and rand+player_sum>21):
+        player_sum+=1
+        player.append(1)
+    else:
+        player_sum+=rand
+        player.append(rand)
 if player_sum>21:
     print(f"Your cards : {player} ,current score : {player_sum}")
     print("You Lost")

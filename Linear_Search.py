@@ -4,10 +4,7 @@
 def linearSearch(array, n, x):
 
   
-    for i in range(0, n):
-        if (array[i] == x):
-            return i
-    return -1
+    return next((i for i in range(0, n) if (array[i] == x)), -1)
 
 
 array = [2, 4, 0, 1, 9]

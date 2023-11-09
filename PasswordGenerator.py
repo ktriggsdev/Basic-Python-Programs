@@ -20,34 +20,31 @@ no_numbers=int(input("How many numbers would you like? \n"))
 
 def easy_version():
     password = ""
-    for i in range(no_letters):
+    for _ in range(no_letters):
         ran=random.randint(0,len(letters))
         password+=letters[ran]
-    for i in range(no_numbers):
+    for _ in range(no_numbers):
         ran=random.randint(0,len(numbers))
         password+=str(numbers[ran])
-    for i in range(no_symbols):
+    for _ in range(no_symbols):
         ran=random.randint(0,len(symbols))
         password+=str(symbols[ran])
     print(password)
 
 def hard_version():
     password_list=[]
-    password=""
-    for i in range(no_letters):
+    for _ in range(no_letters):
         ran=random.randint(0,len(letters)-1)
         password_list+=letters[ran]
-    for i in range(no_numbers):
+    for _ in range(no_numbers):
         ran=random.randint(0,len(numbers)-1)
         password_list+=str(numbers[ran])
-    for i in range(no_symbols):
+    for _ in range(no_symbols):
         ran=random.randint(0,len(symbols)-1)
         password_list+=str(symbols[ran])
 
     random.shuffle(password_list)
-    for i in password_list:
-        password+=i
-
+    password = "".join(password_list)
     print(password)
 
 

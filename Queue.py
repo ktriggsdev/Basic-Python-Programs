@@ -4,12 +4,11 @@ class Queue:
         self.arr.append(item)
     
     def dequeue(self):
-        if len(self.arr) > 0:
-            ditem = self.arr[0] 
-            del self.arr[0]
-            return ditem
-        else:
+        if len(self.arr) <= 0:
             return #queue is empty
+        ditem = self.arr[0]
+        del self.arr[0]
+        return ditem
     
     def dispaly(self):
         print(self.arr)

@@ -7,17 +7,17 @@ symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
 def easy_pass(nr_letters,nr_symbols,nr_numbers):
   random_letters = ""
-  for i in range(0,nr_letters):
+  for _ in range(0,nr_letters):
     random_letter = r.choice(letters)
     random_letters += random_letter
 
   random_symbols = ""
-  for i in range(0,nr_symbols):
+  for _ in range(0,nr_symbols):
     random_symbol = r.choice(symbols)
     random_symbols += random_symbol
 
   random_numbers = ""
-  for i in range(0,nr_numbers):
+  for _ in range(0,nr_numbers):
     random_number = r.choice(numbers)
     random_numbers += random_number
 
@@ -28,17 +28,17 @@ def easy_pass(nr_letters,nr_symbols,nr_numbers):
 
 def hard_pass(nr_letters,nr_symbols,nr_numbers):
   random_letters = []
-  for i in range(0,nr_letters):
+  for _ in range(0,nr_letters):
     random_letter = r.choice(letters)
     random_letters.append(random_letter)
 
   random_symbols = []
-  for i in range(0,nr_symbols):
+  for _ in range(0,nr_symbols):
     random_symbol = r.choice(symbols)
     random_symbols.append(random_symbol)
 
   random_numbers = []
-  for i in range(0,nr_numbers):
+  for _ in range(0,nr_numbers):
     random_number = r.choice(numbers)
     random_numbers.append(random_number)
 
@@ -46,11 +46,7 @@ def hard_pass(nr_letters,nr_symbols,nr_numbers):
   r.shuffle(final_password_list)
 
 
-  #Hard Level - Order of characters randomised:
-  #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
-  final_pass_in_str = ""
-  for char in final_password_list:
-    final_pass_in_str += char
+  final_pass_in_str = "".join(final_password_list)
   print(f"Here is your hard password : {final_pass_in_str}")
 
 

@@ -3,7 +3,7 @@ print("Enter file_name with extension in this folder(image):")
 name = input()
 print("Enter output file name without extension")
 out = input()
-out = out+".png"
+out = f"{out}.png"
 image = cv2.imread(name)
 
 grey_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

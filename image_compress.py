@@ -5,7 +5,7 @@ from PIL import Image
 def compressMe(file, verbose = False):
     filepath = os.path.join(os.getcwd(), file)
     picture = Image.open(filepath)
-    picture.save("Compressed_"+file, "JPEG", optimize = True, quality = 10)
+    picture.save(f"Compressed_{file}", "JPEG", optimize = True, quality = 10)
     return
 
 def main():

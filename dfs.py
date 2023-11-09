@@ -1,13 +1,9 @@
 #DFS
 n = int(input("Enter the number of nodes : "))
 graph = {};
-for i in range(n):
+for _ in range(n):
     temp = list(map(str, input().split()))
-    if len(temp) > 1:
-        graph[temp[0]] = temp[1:]
-    else:
-        graph[temp[0]] = []
-        
+    graph[temp[0]] = temp[1:] if len(temp) > 1 else []
 visited = set();
 
 def dfs(visited, graph, node):
