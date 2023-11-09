@@ -2,7 +2,7 @@ import random
 y = list(map(str,input().split()))
 t1 = []
 t2 = []
-while (len(y) != 0):
+while y:
     x = random.choice(y)
     if (len(t1) == len(t2)):
         t1.append(x)

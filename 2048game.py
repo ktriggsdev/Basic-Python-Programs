@@ -10,13 +10,7 @@ import random
 # at the start
 def start_game():
 
-	# declaring an empty list then
-	# appending 4 list each with four
-	# elements as 0.
-	mat =[]
-	for i in range(4):
-		mat.append([0] * 4)
-
+	mat = [[0] * 4 for _ in range(4)]
 	# printing controls for user
 	print("Commands are as follows : ")
 	print("'W' or 'w' : Move Up")
@@ -75,19 +69,17 @@ def get_current_state(mat):
 	# cell then also game is not yet over
 	for i in range(3):
 		for j in range(3):
-			if(mat[i][j]== mat[i + 1][j] or mat[i][j]== mat[i][j + 1]):
+			if mat[i][j] in [mat[i + 1][j], mat[i][j + 1]]:
 				return 'GAME NOT OVER'
 
 	for j in range(3):
 		if(mat[3][j]== mat[3][j + 1]):
 			return 'GAME NOT OVER'
 
-	for i in range(3):
-		if(mat[i][3]== mat[i + 1][3]):
-			return 'GAME NOT OVER'
-
-	# else we have lost the game
-	return 'LOST'
+	return next(
+		('GAME NOT OVER' for i in range(3) if (mat[i][3] == mat[i + 1][3])),
+		'LOST',
+	)
 
 # all the functions defined below
 # are for left swap initially.
@@ -101,13 +93,7 @@ def compress(mat):
 	# any change happened or not
 	changed = False
 
-	# empty grid
-	new_mat = []
-
-	# with all cells empty
-	for i in range(4):
-		new_mat.append([0] * 4)
-		
+	new_mat = [[0] * 4 for _ in range(4)]
 	# here we will shift entries
 	# of each cell to it's extreme
 	# left row by row
@@ -119,13 +105,13 @@ def compress(mat):
 		# in respective row
 		for j in range(4):
 			if(mat[i][j] != 0):
-				
+
 				# if cell is non empty then
 				# we will shift it's number to
 				# previous empty cell in that row
 				# denoted by pos variable
 				new_mat[i][pos] = mat[i][j]
-				
+
 				if(j != pos):
 					changed = True
 				pos += 1

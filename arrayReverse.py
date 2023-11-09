@@ -17,7 +17,7 @@ def userInput():
     arr = []
     n  = int(input("Enter number of elements:"))
     print("Enter the elements")
-    for i in range(0,n):
+    for _ in range(0,n):
         element = int(input())
         arr.append(element)
 

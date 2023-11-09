@@ -6,10 +6,9 @@ def emi_calculator(p:float, r:float, t:float):
       r - interest rate per month
       t - time period (in years)
     """
-    r = r / (12 * 100) # one month interest
-    t = t * 12 # one month period
-    emi = (p * r * pow(1 + r, t)) / (pow(1 + r, t) - 1)
-    return emi
+    r /= 12 * 100
+    t *= 12
+    return (p * r * pow(1 + r, t)) / (pow(1 + r, t) - 1)
  
 
 principal = float(input("Enter principal amount (in ₹):"))

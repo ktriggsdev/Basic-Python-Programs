@@ -11,23 +11,23 @@ dataPath = str(input("Copy the path to your video input data and paste it here: 
 # Path for output JPEG images
 outPath = str(input("Copy the path to your output folder storing the JPEG images and paste it here: "))
 
+currentframe = 0
+# a variable to set how many frames you want to skip
+frame_skip = 5          # Since the videos are in 30 FPS, and we want 10 frames per clip
+
 for classPath in os.listdir(dataPath):
     clipPaths = os.listdir(dataPath + "\\" + classPath)
     os.mkdir((outPath + '\\' + classPath))
-    
+
     k = 1
     for clips in clipPaths:
         os.mkdir((outPath + '\\' + classPath + '\\' + clips))
         os.chdir((outPath + '\\' + classPath + '\\' + clips))
-        
+
         f = dataPath + "\\" + classPath + "\\" + clips
         cam = cv2.VideoCapture(f)
         ret, frame = cam.read()
-        currentframe = 0
         i = 0
-        
-        # a variable to set how many frames you want to skip
-        frame_skip = 5          # Since the videos are in 30 FPS, and we want 10 frames per clip
 
         while cam.isOpened():
             ret, frame = cam.read()
@@ -35,7 +35,7 @@ for classPath in os.listdir(dataPath):
             if not ret:
                 break
             if (i > frame_skip - 1):
-                cv2.imwrite(classPath + '_' + clips + '_' + str(k) +'.jpg', frame)
+                cv2.imwrite(f'{classPath}_{clips}_{k}.jpg', frame)
                 i = 0
                 continue
             i += 1

@@ -45,12 +45,11 @@ class Bank(User):
         if self.amount < self.balance:
             self.balance -= self.amount
             print(f"Successfully  Withdrawn ${self.amount}")
-            print(f"Current Balance : ${self.balance}")
-            print()
         else:
-            print("Not Enough Balance!!!") 
-            print(f"Current Balance : ${self.balance}")
-            print()
+            print("Not Enough Balance!!!")
+
+        print(f"Current Balance : ${self.balance}")
+        print()
             
     def view_balance(self):
         self.show_details()

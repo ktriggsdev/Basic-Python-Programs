@@ -1,5 +1,5 @@
-def dec_to_bin(n:int)->int:
-    return int(str(bin(n))[2:])
+def dec_to_bin(n:int) -> int:
+    return int(bin(n)[2:])
     
     #bin() is a function that takes in a string and converts it to binary provided the string is purely integer populated
 

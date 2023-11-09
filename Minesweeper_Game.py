@@ -3,9 +3,9 @@ import random
 # Generate a random map to start the game.
 def randomMap(n, k):
 
-    arr = [[0 for row in range(0,n)] for column in range(0,n)]
+    arr = [[0 for _ in range(0,n)] for _ in range(0,n)]
 
-    for num in range(0,k):
+    for _ in range(0,k):
         x = random.randint(0,n-1)
         y = random.randint(0,n-1)
         arr[y][x] = 'X'
@@ -21,7 +21,7 @@ def randomMap(n, k):
         if (x >= 1 and x <= n-1) and (y >= 1 and y <= n-1):
             if arr[y-1][x-1] != 'X':
                 arr[y-1][x-1] += 1 # top left
- 
+
         if (x >= 0 and x <= n-2) and (y >= 1 and y <= n-1):
             if arr[y-1][x+1] != 'X':
                 arr[y-1][x+1] += 1 # top right
@@ -29,7 +29,7 @@ def randomMap(n, k):
         if (x >= 0 and x <= n-1) and (y >= 1 and y <= n-1):
             if arr[y-1][x] != 'X':
                 arr[y-1][x] += 1 # top center
- 
+
         if (x >=0 and x <= n-2) and (y >= 0 and y <= n-2):
             if arr[y+1][x+1] != 'X':
                 arr[y+1][x+1] += 1 # bottom right
@@ -45,8 +45,7 @@ def randomMap(n, k):
 
 # Generate the map for the player.
 def playerMap(n):
-    arr = [['-' for row in range(0,n)] for column in range(0,n)]
-    return arr
+    return [['-' for _ in range(0,n)] for _ in range(0,n)]
 
 # Display the map on the screen.
 def showMap(map):
@@ -66,9 +65,7 @@ def checkWin(map):
 def checkContinue(score):
     print("Your score: ", score)
     isContinue = input("Do you want to try again? (y/n) :")
-    if isContinue == 'n':
-        return False
-    return True
+    return isContinue != 'n'
 
 # MINESWEEPER GAME
 def Game():

@@ -1,13 +1,12 @@
 N = 1000
-P = [i for i in range(0,N+1)] # parent
-S = [1 for i in range(0,N+1)] # size of set
+P = list(range(0,N+1))
+S = [1 for _ in range(0,N+1)]
 
 def find(u):
 	if u == P[u]:
 		return u
-	else:
-		P[u] = find(P[u])
-		return P[u]
+	P[u] = find(P[u])
+	return P[u]
 
 def union(u,v):
 	u = find(u)

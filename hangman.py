@@ -12,7 +12,7 @@ guess_list = [
 print('WELCOME TO MY HANGMAN GAME\n')
 cc = random.choice(guess_list).upper()
 guesses = len(cc)+4
-repw = ['_' for i in range(len(cc))]
+repw = ['_' for _ in range(len(cc))]
 while guesses > 0:
     print(f'WORD: {" ".join(repw)}')
     ug = input('Guess a letter:').upper()
@@ -25,5 +25,5 @@ while guesses > 0:
     print('Tries remain:',guesses-1,'\n')
     guesses-=1
 
-        
+
 print('\nYou WIN🎉\n') if repw.count('_')==0 else print('\nYou LOSE💔')

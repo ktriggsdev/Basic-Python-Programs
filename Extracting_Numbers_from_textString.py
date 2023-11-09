@@ -2,19 +2,13 @@
 sentence="Ramu have 150 Apples and 10 bananas"
 sentence2="Ramu Sell 1 Apple at 15.5 Rupees"
 
-list1=[]
-list2=[]
-
 sum=0
 sum2=0
 # split is used to split sentence
 # This code is not fit for Decimal Nos.
 
 print("---------------EXTRACTING NUMBER FROM STRING---------------\n")
-for word in sentence.split():
-    if word.isdigit():
-        list1.append(word)
-       
+list1 = [word for word in sentence.split() if word.isdigit()]
 print("New List",list1)
 
 
@@ -25,11 +19,7 @@ for i in list1:
 
 print("No. without Fraction \nsum=",sum,"\n")
 
-# If Decimal Numbers occured in the Sentence
-for word2 in sentence2.split():
-    if not word2.isalpha():
-        list2.append(word2)
-
+list2 = [word2 for word2 in sentence2.split() if not word2.isalpha()]
 print("New List",list2)
 
 # Calculating the SUM

@@ -7,15 +7,11 @@ from random import randint, seed
   
 def die(sides=6):
     seed()
-    result = randint(1, sides)
-    return result
+    return randint(1, sides)
 
 # This function defines a dice roll. 
 # If no specific side and number of dies are defined, it 'rolls' a six-sided die.
 #Returns a list of ints with the dice rolls.
 
 def dice(number_of_die=1, sides=6):
-    rolls = []
-    for roll in range(0, number_of_die):
-        rolls.append(die(sides))
-    return rolls
+    return [die(sides) for _ in range(0, number_of_die)]

@@ -20,17 +20,16 @@ def transform_to_rupiah_format(value):
 
     temp_result = temp_reverse_value[::-1]
 
-    return "Rp " + temp_result + ",0" + before_decimal
+    return f"Rp {temp_result},0{before_decimal}"
 
 
 def formatrupiah(uang):
     y = str(uang)
     if len(y) <= 3:
-        return 'Rp ' + y 
-    else:
-        p = y[-3:]
-        q = y[:-3]
-        return formatrupiah(q) + '.' + p 
+        return f'Rp {y}'
+    p = y[-3:]
+    q = y[:-3]
+    return f'{formatrupiah(q)}.{p}' 
       
 
 # default budgeting percentage (single)
@@ -60,18 +59,21 @@ budgett_saving = budget * saving
 
 print('========================================================')
 for x in percentage:
-    print('Checking Persen Budgeting '+'{}'.format(sum)+' %'+' (Checking)')
+    print(f'Checking Persen Budgeting {sum} % (Checking)')
     time.sleep(2)
     sum += x
 
-print('Checking Persen Budgeting '+'{}'.format(percent_budget)+'%'+' (Done)')
+print(f'Checking Persen Budgeting {percent_budget}% (Done)')
 time.sleep(2)
-print('Budgeting anda adalah sebesar {}'.format(formatrupiah(budget))+',00')
-print('Pemasukan anda untuk kebutuhan hidup adalah\t: {}'.format(
-    transform_to_rupiah_format(budget_living)))
+print(f'Budgeting anda adalah sebesar {formatrupiah(budget)},00')
+print(
+    f'Pemasukan anda untuk kebutuhan hidup adalah\t: {transform_to_rupiah_format(budget_living)}'
+)
 
-print('Pemasukan anda untuk kegiatan adalah\t\t: {}'.format(
-    transform_to_rupiah_format(budget_playing)))
-print('Pemasukan anda untuk tabungan adalah\t\t: {}'.format(
-    transform_to_rupiah_format(budgett_saving)))
+print(
+    f'Pemasukan anda untuk kegiatan adalah\t\t: {transform_to_rupiah_format(budget_playing)}'
+)
+print(
+    f'Pemasukan anda untuk tabungan adalah\t\t: {transform_to_rupiah_format(budgett_saving)}'
+)
 print('========================================================')

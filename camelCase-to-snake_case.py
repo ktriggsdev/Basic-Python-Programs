@@ -4,6 +4,6 @@ j = 0
 
 for char in name:
     if char.isupper():
-        print("_" + char.lower(), end = "")
+        print(f"_{char.lower()}", end = "")
     else:
         print(char, end = "")

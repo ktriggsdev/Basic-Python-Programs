@@ -1,9 +1,6 @@
 
 
-loop = 1
-
-while (loop < 10):
-
+for _ in range(1, 10):
     # All the questions that the program asks the user
 
     noun = input("Choose a noun: ")
@@ -37,7 +34,3 @@ while (loop < 10):
     print ("Well it is.")
 
     print ("------------------------------------------")
-
-    # Loop back to "loop = 1"
-
-    loop = loop + 1

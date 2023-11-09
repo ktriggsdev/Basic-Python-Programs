@@ -5,21 +5,17 @@ print("Enter the Name of File: ")
 
 # Convert the name to string and open the file in read mode
 fileName = str(input())
-fileHandle = open(fileName, "r")
+with open(fileName, "r") as fileHandle:
+  # Declare a variable to store the number of vowels. Initally it is zero.
+  count = 0
 
-# Declare a variable to store the number of vowels. Initally it is zero.
-count = 0
+  # create an array of all the vowels (upper and lower case) that can be used to compare and determine if a character is a vowel 
+  vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
 
-# create an array of all the vowels (upper and lower case) that can be used to compare and determine if a character is a vowel 
-vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
-
-# Read each character and compare it to the characters in the array. If found in the vowels array, then increase count.
-for char in fileHandle.read():
-  if char in vowels:
-    count = count+1
-    
-# Close the file    
-fileHandle.close()
+  # Read each character and compare it to the characters in the array. If found in the vowels array, then increase count.
+  for char in fileHandle.read():
+    if char in vowels:
+      count = count+1
 
 # Print the count to the screen for the user to see.
 print("\nThe total number of vowels in the text are:")

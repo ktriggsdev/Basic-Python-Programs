@@ -7,10 +7,7 @@ def fast_rec_fib_helper(n):
     prev = (hprv ** 2) + (hcur **2)
     curr = hcur * (2 * hprv + hcur)
     next = prev + curr
-    if n % 2 == 0:
-        return (prev, curr)
-    else:
-        return (curr, next)
+    return (prev, curr) if n % 2 == 0 else (curr, next)
 
 def fast_rec_fib(n):
     if n==0:

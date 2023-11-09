@@ -18,7 +18,7 @@ def main():
     age = calculate_age(datetime.date(year, month, day))
 
     # Print the age
-    print("Your age is: {}".format(age))
+    print(f"Your age is: {age}")
 
 if __name__ == '__main__':
     main()

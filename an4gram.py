@@ -25,14 +25,9 @@ def isanagram(s1,s2):
         else:
             freq2[char] = 1
 
-    # for every key in dictionary freq1 we are comparing it with the key in dictionary freq2
-    # if the key is not found then it will return false 
-    # and simillarly the values from both the dictionaries are being compared 
-    # if any one of the condition is false it will return false "or" is being used 
-    for key in freq1:
-        if key not in freq2 or freq1[key]!=freq2[key]:
-            return False
-    return True
+    return not any(
+        key not in freq2 or value != freq2[key] for key, value in freq1.items()
+    )
 
 
 

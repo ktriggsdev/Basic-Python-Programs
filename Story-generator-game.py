@@ -10,7 +10,7 @@ time.sleep(4)
 
 name=input('Player Name :- ')
 print('\n')
-print('Welcome ' + name + '. Let''s play Hangman')
+print(f'Welcome {name}. Lets play Hangman')
 print('')
 
 time.sleep(1)
@@ -28,7 +28,7 @@ elif choose==2:
 elif choose==3:
     word=random.choice(ramaayan)
 
-print('HINT : Starts with' + word[0])
+print(f'HINT : Starts with{word[0]}')
 print('\n')
 print("Start guessing...")
 time.sleep(0.5)
@@ -44,15 +44,14 @@ while turn>0:
             print('_')
             fail+=1
     if fail==0:
-        print('You Won ' + name + ' !')
+        print(f'You Won {name} !')
         print('\n')
         print('Here is your story - ')
         theme=random.choice(["real world","high fantasy","space sci-fi","alt-history","cyberpunk"])
         if theme == "real world":
             subsetting=random.choice(["the Ayodhya","Kishkindha","Lanka","Panchvati","Janakpuri"])
             setting=random.choice(["a small town in ","a big city in ","a farm in ","a school in ","the ocean","the entire world"])
-            if setting != "the ocean" or "the entire world":
-                setting=setting+subsetting
+            setting=setting+subsetting
             age=random.choice(["newborn ","toddler ","child ","teenager ","young adult ","adult ","middle aged ","elder "])
             race=random.choice(["ayodhyan ","janakis ","lankan ","indian "])
             gengender=random.randint(0,100)
@@ -112,7 +111,7 @@ while turn>0:
                 figure=random.choice(figures)
                 antagonist=random.choice(figures)
             afigure=("figure known as ")     
-            protagonist= afigure+figure     
+            protagonist= afigure+figure
         if theme == "cyberpunk":
             setting=random.choice(["high-tech Tokyo","New New York","a dystopia","a utopia","a computer simulation","the SuperWeb","Mega Silicon Valley","an underwater city","an extensive underground facility"])
             gender=random.choice(["male ","male ","female ","female ","robogender ","unigender ","agender ","mega genderfluid ","third gender "])
@@ -126,14 +125,14 @@ while turn>0:
         break
 
 
-        
+
     guesses=input('Guess a character :- ')
     guess=guess+guesses
     if guesses not in word:
         turn-=1
-        print('Wrong. You have ' + str(turn) + ' more guesses.')
+        print(f'Wrong. You have {turn} more guesses.')
         if turn==0:
-            print('You lose ! The word was ' + word + '. Sorry, you don''t get the story.')
+            print(f'You lose ! The word was {word}. Sorry, you dont get the story.')
             print('\n')
             print('Write your story on your own.')
 #Winstoryhangman

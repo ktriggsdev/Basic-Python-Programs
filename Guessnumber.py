@@ -21,7 +21,7 @@ level = input().lower()
 while True:
 
 
-    if(level!="hard" and level!="easy"):
+    if level not in ["hard", "easy"]:
         print("Invalid Choice")
     else:break
 

@@ -28,8 +28,8 @@ def main():
 def mask_email(email):
     lo = email.find('@')
     domain_extension = email.rfind('.')
-    word_count = len(email)
     if lo > 0:
+        word_count = len(email)
         return "{0}#####{1}@{2}###{3}".format(email[0],
                                               email[lo-1],
                                               email[lo+1],

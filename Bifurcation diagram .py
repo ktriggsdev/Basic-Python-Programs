@@ -47,14 +47,14 @@ bif1 = partial(bif,x0)
 if __name__ == '__main__':
     # create and configure the process pool
     with Pool(4) as p:
-        
+
         for i,ch in enumerate(p.map(bif1,r,chunksize=2500)) :
             x1=np.ones(len(ch))*r[i]
             X.append(x1)
             Y.append(ch)
-    print("--- %s seconds ---" % (time.time() - start_time))
+    print(f"--- {time.time() - start_time} seconds ---")
 
-    plt.style.use('dark_background')      
+    plt.style.use('dark_background')
     plt.plot(X,Y, ".w", alpha=1, ms=1.2)
     figure = plt.gcf()  # get current figure
     figure.set_size_inches(1920 / 40, 1080 / 40)

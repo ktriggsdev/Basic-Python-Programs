@@ -14,6 +14,4 @@ def reverse32bitsignedint(n):
     limit = 1 << 31
     if is_negative:
         ans = -ans
-    if (ans <= -limit) or (ans >= limit - 1):
-        return 0
-    return ans
+    return 0 if (ans <= -limit) or (ans >= limit - 1) else ans

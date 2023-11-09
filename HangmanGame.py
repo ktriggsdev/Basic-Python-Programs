@@ -63,10 +63,10 @@ word = random.choice(word_list);
 print(f"The chosen word is {word}")
 blank_list = []
 
-for i in range(len(word)):
+for _ in range(len(word)):
     blank_list += "_"
 end_game=False
-while end_game == False:
+while not end_game:
     guess = input("Guess a letter\n")
 
     if guess not in word:

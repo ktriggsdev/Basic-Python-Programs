@@ -20,11 +20,7 @@ def levenshtein_distance(word_1, chars_1, word_2, chars_2):
 
     # if last characters of the string match, the cost of
     # operations is 0, i.e. no changes are made
-    if word_1[chars_1 - 1] == word_2[chars_2 - 1]:
-        cost = 0
-    else:
-        cost = 1
-
+    cost = 0 if word_1[chars_1 - 1] == word_2[chars_2 - 1] else 1
     # calculating the numbers of operations recursively
     deletion =  levenshtein_distance(word_1, chars_1 - 1, word_2, chars_2) + 1
     insertion = levenshtein_distance(word_1, chars_1, word_2, chars_2 - 1) + 1

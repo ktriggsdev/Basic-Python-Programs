@@ -3,11 +3,9 @@ import math
 import random
 import smtplib
 digits = "012456789"
-OTP = ""
-for i in range(4):
-     OTP += digits[math.floor(random.random() * 10)]
-msg =  str(OTP) + "Your OTP is" 
- 
+OTP = "".join(digits[math.floor(random.random() * 10)] for _ in range(4))
+msg = f"{OTP}Your OTP is" 
+
 s = smtplib.SMTP('smtp.gmail.com', 587)
 s.starttls()
 

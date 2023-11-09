@@ -16,7 +16,7 @@ while chances >= 0:
             print("Please Press 2 To Make a Withdrawl.")
             print("Please Press 3 To Pay in.")
             print("Please Press 4 To Return Card.")
-            
+
             option = int(input("\nWhat Would you like to Choose?: "))
 
             if option == 1:
@@ -31,7 +31,7 @@ while chances >= 0:
                 option2 = ("y")
                 withdrawl = float(input("\nHow Much Would you like to withdraw? 10, 20, 40, 60, 80, 100 for other enter 1: "))
 
-                if withdrawl in [10, 20, 40, 60, 80, 100]:
+                if withdrawl in {10, 20, 40, 60, 80, 100}:
                     balance = balance - withdrawl
                     print(f"\nYour balance after the withdrawl is ${balance}")
                     restart = input("\nWould You like to do something else? ")
@@ -73,9 +73,9 @@ while chances >= 0:
                 print("\nPlease enter a correct number.\n")
                 restart = ("y")
 
-    elif  pin != (1234):
+    else:
         print("\nINCORRECT PIN!!\n")
-        chances = chances - 1
+        chances -= 1
 
         if chances == 0:
             print("Calling the Police...\n")

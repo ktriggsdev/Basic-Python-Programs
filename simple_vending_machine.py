@@ -1,5 +1,5 @@
 a=dict()
-key_list=list()
+key_list = []
 def readFile():
     with open("vendingitems.txt",'r') as f:
         for line in f:
@@ -12,23 +12,21 @@ def vendingMachine():
     readFile()
     while True:
         item=input("Enter item name\n")
-        if(item in a.keys()):
+        if (item in a.keys()):
             print("Valid Item Name")
             #break
             cash=int(input("Enter money to deposit\n"))
-            if(isinstance(cash,int)==False):
-                print("Bad Input {}\n Try Again!".format(str(cash)))
-                #continue
+            if not isinstance(cash, int):
+                print(f"Bad Input {cash}\n Try Again!")
+                            #continue
+            elif (cash>a[item]):
+                print("Thank you for your purchase.Enjoy\n")
+                print(f"Do not forget to collect your change,{cash - a[item]} Rs")
+                break
             else:
-                if(cash>a[item]):
-                    print("Thank you for your purchase.Enjoy\n")
-                    print("Do not forget to collect your change,{} Rs".format(cash-a[item]))
-                    break
-                else:
-                    print("Not enough Money to but the item\n")
-                    continue
+                print("Not enough Money to but the item\n")
         else:
-            print("Available Items are {} ,\nTry Again!".format(a.keys()))
+            print(f"Available Items are {a.keys()} ,\nTry Again!")
             continue
             
 

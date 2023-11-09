@@ -4,13 +4,9 @@
 import random as rd; 
 
 minNum = 0;
-maxNum = 1000; #maximum number in array
-lengthOfItems= 500; #this will generate 500 random numbers. 
-
-file = open("newFile.csv", "a") # creates a new file named newFile.csv - feel free to edit file name
-
-for i in range(lengthOfItems):
-    file.write(str(str(rd.randint(minNum,maxNum)) + ","))
-
-file.close()
+maxNum = 1000
+lengthOfItems= 500
+with open("newFile.csv", "a") as file:
+    for _ in range(lengthOfItems):
+        file.write(str(f"{str(rd.randint(minNum, maxNum))},"))
 #note - you will have to split first line at "," and convert to int 

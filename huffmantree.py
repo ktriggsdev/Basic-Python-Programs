@@ -20,6 +20,5 @@ def getHuffmanTree(txt):
         left,right=hpp(pq),hpp(pq);
         newFreq=left.freq+right.freq
         hppu(pq,Node(None,newFreq,left,right))
-    root=pq[0]
-    return root
+    return pq[0]
 
